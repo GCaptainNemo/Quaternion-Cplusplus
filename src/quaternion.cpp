@@ -10,10 +10,13 @@ Quaternion::Quaternion(double theta, const double rotate_axis[3])
 	// initialize by rotate axis and rotate angle theta:
 	// [w, x, y, z] = [pcos(theta / 2), v1 * sin(theta / 2), 
 	// v2 * sin(theta / 2), v3 * sin(theta / 2)] 
+	double normalize_factor = sqrt(pow(rotate_axis[0], 2) + 
+								   pow(rotate_axis[1], 2) +
+								   pow(rotate_axis[2], 2));
 	this->w = cos(theta / 2);
-	this->x = rotate_axis[0] * sin(theta / 2);
-	this->y = rotate_axis[1] * sin(theta / 2);
-	this->z = rotate_axis[2] * sin(theta / 2);
+	this->x = rotate_axis[0] * sin(theta / 2) / normalize_factor;
+	this->y = rotate_axis[1] * sin(theta / 2) / normalize_factor;
+	this->z = rotate_axis[2] * sin(theta / 2) / normalize_factor;
 };
 
 Quaternion::Quaternion(): w(0), x(0), y(0), z(0)
