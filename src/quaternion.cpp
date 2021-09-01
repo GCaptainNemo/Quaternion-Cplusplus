@@ -83,6 +83,22 @@ Quaternion Quaternion::operator+(const Quaternion & B)
 };
 
 
+void Quaternion::ToRotateMatrix(double matrix[3][3]) 
+{
+	// use Rodriguez formula
+	matrix[0][0] = 1 - 2 * pow(this->y, 2) - 2 * pow(this->z, 2);
+	matrix[0][1] = 2 * this->y * this->x - 2 * this->w * this->z;
+	matrix[0][2] = 2 * this->z * this->x + 2 * this->w * this->y;
+	matrix[1][0] = 2 * this->x * this->y + 2 * this->w * this->z;
+	matrix[1][1] = 1 - 2 * pow(this->x, 2) - 2 * pow(this->z, 2);
+	matrix[1][2] = 2 * this->y * this->z - 2 * this->w * this->x;
+	matrix[2][0] = 2 * this->x * this->z - 2 * this->w * this->y;
+	matrix[2][1] = 2 * this->y * this->z + 2 * this->w * this->x;;
+	matrix[2][2] = 1 - 2 * pow(this->y, 2) - 2 * pow(this->x, 2);
+
+};
+
+
 //template <typename T>
 //Quaternion<T>::Quaternion(T w_, T x_, T y_, T z_) :w(w_), x(x_), y(y_), z(z_) 
 //{};

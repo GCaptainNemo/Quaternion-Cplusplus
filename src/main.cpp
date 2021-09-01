@@ -10,6 +10,17 @@ int main()
 	double pos[3] = { 1., 0., 0. };
 	double * res = rotate_qua.rotate(pos);
 	std::cout << res[0] << res[1] << res[2];
+	double rotate_mat[3][3];
+	rotate_qua.ToRotateMatrix(rotate_mat);
+	for (int i = 0; i < 3; ++i) 
+	{
+		for (int j = 0; j < 3; ++j) 
+		{
+			printf("%f ,", rotate_mat[i][j]);
+		
+		}
+		printf("\n");
+	}
 	return 0;
 }
 

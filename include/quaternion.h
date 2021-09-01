@@ -18,6 +18,10 @@ public:
 	Quaternion operator*(const Quaternion & B);
 	Quaternion conjugate();
 
+	// convert to Roderigus vector and rotate matrix
+	void ToRotateMatrix(double matrix[3][3]);
+
+
 	// print
 	friend std::ostream &operator<<(std::ostream &stream, const Quaternion &p)
 	{
