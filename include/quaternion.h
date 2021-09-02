@@ -1,25 +1,25 @@
 #pragma once
-//template <typename T>
 #include <ostream>
 
+template<class T>
 class Quaternion 
 {
 public:
 	// methods
 	// construction function
-	Quaternion(double w , double x, double y, double z);
-	Quaternion(double theta, const double rotate_axis[3]);
-	Quaternion();
-	Quaternion(Quaternion & B);
+	Quaternion(T w_, T x_, T y_, T z_) : w(w_), x(x_), y(y_), z(z_){};
+	Quaternion(const T  theta, const T rotate_axis[3]);
+	Quaternion():w(0), x(0), y(0), z(0){};;
+	Quaternion(Quaternion & B):w(B.w), x(B.x), y(B.y), z(B.z){};
 
 	// operator
 	Quaternion operator+(const Quaternion & B);
-	Quaternion operator*(const double & val);
+	Quaternion operator*(const T & val);
 	Quaternion operator*(const Quaternion & B);
 	Quaternion conjugate();
 
 	// convert to Roderigus vector and rotate matrix
-	void ToRotateMatrix(double matrix[3][3]);
+	void ToRotateMatrix(T matrix[3][3]);
 
 
 	// print
@@ -28,14 +28,11 @@ public:
 		stream << p.w <<", "<< p.x << ", " << p.y <<", " <<p.z << std::endl;
 		return stream;
 	}
-	double * rotate(const double pos[3]);
+	T * rotate(const T pos[3]);
 	
 public:
 	// attributes
-	//T w; T x; T y; T z;
-	double w; double x; double y; double z;
-
-	
+	T w; T x; T y; T z;
 };
 
 
