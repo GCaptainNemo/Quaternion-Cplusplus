@@ -55,6 +55,8 @@
 
 [1] [introduction to quaternion](./resources/introquaternions.pdf)
 
+[2] [四元数插值——姿态平滑](https://blog.csdn.net/weixin_42595073/article/details/100704061)
+
 
 
 
