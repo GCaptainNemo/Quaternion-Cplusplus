@@ -10,7 +10,8 @@ int main()
 	Quaternion<double> rotate_qua(rotate_angle, axis);
 	double pos[3] = { 1., 0., 0. };
 	double * res = rotate_qua.rotate(pos);
-	std::cout << res[0] << res[1] << res[2];
+	std::cout << "after rotate vec = ";
+	std::cout << res[0] << ", " << res[1] << ", " << res[2] << std::endl;
 	double rotate_mat[3][3];
 	rotate_qua.ToRotateMatrix(rotate_mat);
 	for (int i = 0; i < 3; ++i) 
