@@ -1,5 +1,4 @@
-#include "../include/quaternion.h"
-#include "./quaternion.cpp"
+#include "./quaternion.hpp"
 #include <iostream>
 
 int main() 

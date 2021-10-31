@@ -4,16 +4,9 @@ set(CMAKE_CXX_FLAGS "/EHsc ${CMAKE_CXX_FLAGS}")
 
 PROJECT(quaternion)
 
-# to .a file
-# add_library(quaternion_shared SHARED ./src/quaternion.cpp)
-# to .so file
-add_library(quaternion_lib  STATIC ./src/quaternion.cpp)
-
-# main to exe
 add_executable(
-quaternion ./src/main.cpp
+quaternion  ./src/main.cpp
 )
-target_link_libraries(quaternion quaternion_lib)
 
 
 
